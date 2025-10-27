@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Industry Affiliation Slider</title>
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+  <header>
+    <div class="headerMainDiv">
+      <div class="marginDiv">
+        <div class="headerLinks">
+          <a href="https://wa.me/971504925316"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+          <a href="https://facebook.com"><i class="fa-brands fa-facebook fa-lg"></i></a>
+          <a href="https://instagram.com"><i class="fa-brands fa-instagram fa-lg"></i></a>
+          <a
+            href="https://www.linkedin.com/in/abdulhamid-kanaan-b341b6217?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
+            <i class="fa-brands fa-linkedin fa-lg"></i></a>
+        </div>
+
+        <div class="headerLogo">
+          <img src="images/home/H B A.png" alt="HBA Logistics Logo" class="headLogo" />
+        </div>
+
+        <div class="headerButtonContainer">
+          <button class="headerContactButton">
+            <a href="contact.html">Contact</a>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-div">
+      <nav>
+        <ul id="menuList">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="menu-icon">
+          <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+
+
+
+
+
+  <main>
+    <section class="sec-1">
+      <video autoplay muted loop playsinline class="backVideo">
+        <source
+          src="video/Drone Shot of Cargo Containers Terminal Ships at Dock Port. Stock Videos of Logistics Export Import_2.mp4"
+          type="video/mp4" />
+      </video>
+      <div class="overlay"></div>
+      <div class="sec-1-headings">
+        <h2>HBA Logistic Services</h2>
+        <h3>Logistic Simplified!</h3>
+        <p>Your Preferred Logistic & Freight Partner</p>
+      </div>
+    </section>
+
+    <section class="affiliation">
+      <div class="marginDiv2">
+        <h2>Industry Affiliation</h2>
+
+        <div class="slider-container">
+          <div class="slider" id="slider"></div>
+        </div>
+
+        <div class="dots" id="dots"></div>
+      </div>
+    </section>
+  </main>
+
+
+
+
+
+
+
+<script src="https://kit.fontawesome.com/91f1d83e7d.js" crossorigin="anonymous"></script>
+  <script>
+    // ✅ EDIT THIS LIST to change the images
+    const logos = [
+      { src: "images/home/industryLogo.webp", alt: "JCTRANS" },
+      { src: "images/home/industryLogo2.webp", alt: "IATA" },
+      { src: "images/home/industryLogo3.webp", alt: "NAFL" },
+      { src: "images/home/industryLogo4.webp", alt: "Dubai Quality" },
+      { src: "images/home/industryLogo5.webp", alt: "Dubai Chamber" },
+    ];
+
+    const slider = document.getElementById("slider");
+    const dotsContainer = document.getElementById("dots");
+
+    // Build slides dynamically
+    function createSlides() {
+      slider.innerHTML = "";
+      logos.forEach((logo) => {
+        const slide = document.createElement("div");
+        slide.className = "slide";
+        slide.innerHTML = `<img src="${logo.src}" alt="${logo.alt}">`;
+        slider.appendChild(slide);
+      });
+    }
+
+    // Detect how many slides fit per view based on screen width
+    function getSlidesPerView() {
+      if (window.innerWidth <= 400) return 1;
+      if (window.innerWidth <= 600) return 2;
+      if (window.innerWidth <= 900) return 3;
+      return 5;
+    }
+
+    // Create exactly 5 dots
+    function createDots() {
+      dotsContainer.innerHTML = "";
+      const numDots = 5; // ✅ fixed to 5
+
+      for (let i = 0; i < numDots; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          index = i;
+          updateSlider();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+    // Move slider
+    function updateSlider() {
+      const slidesPerView = getSlidesPerView();
+      const offset = index * (100 / slidesPerView);
+      slider.style.transform = `translateX(-${offset}%)`;
+
+      document.querySelectorAll(".dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+    }
+
+    // Initialize
+    createSlides();
+    createDots();
+    updateSlider();
+
+    // Update on resize
+    window.addEventListener("resize", () => {
+      createDots();
+      updateSlider();
+    });
+
+
+  </script>
+</body>
+
+</html>
