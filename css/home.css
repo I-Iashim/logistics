@@ -211,6 +211,34 @@ nav ul li a:hover::before{
     align-items: center;
     height: 700px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-aspect-ratio: 16/9) {
     .backVideo{
         width: 100%;
@@ -600,17 +628,18 @@ nav ul li a:hover {
     width: 100%;
     margin: auto;
   }
+
 .affiliation {
-  margin-top: 150px;
+  padding: 150px 0;
   text-align: center;
-  margin-bottom: 100px;
+  
 }
 
 .affiliation h2 {
   
-  font-size: 40px;
+  font-size: 50px;
   margin-bottom: 80px;
-  color: #222;
+  color: #ff5722;
 }
 
 /* --- Slider container --- */
@@ -631,16 +660,16 @@ nav ul li a:hover {
   align-items: center;
   padding: 2px;
 }
-
 .slide img {
   cursor: pointer;
   width: 100%;
   max-width: 300px;
   object-fit: contain;
   transition: filter 0.3s ease;
+  background: transparent;
+  mix-blend-mode: darken;
+  filter: brightness(1.1) contrast(1.2);
 }
-
-
 /* --- Dots navigation --- */
 .dots {
   display: flex;
@@ -661,6 +690,216 @@ nav ul li a:hover {
 .dot.active {
   background: #f15a24;
 }
+.secondSlider{
+  background-color: rgba(241, 241, 241, 0.582);
+  padding: 100px 0;
+}
+
+
+
+
+
+
+
+.services {
+  padding: 150px 20px;
+  background: #000000;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 40px;
+  color: #ff5722;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.services-grid {
+  display: grid;
+  max-width: 1050px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: #fff;
+  padding: 50px 20px;
+  border-radius: 12px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.service-card:hover {
+  transform: translateY(-10px) scale(1.005);
+  box-shadow: 0 0px 1px 5px #ff5722;
+}
+
+.service-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 0.95em;
+  color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.parallax-section {
+  position: relative;
+  height: 800px; /* Adjust as needed */
+  background-image: url('../images/home/dubaiBackground.jpg'); /* Your background image */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.parallax-section .content {
+  background: rgba(0, 0, 0, 0.923); /* Optional overlay to make text readable */
+  padding: 30px 40px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+
+
+
+
+
+
+.contact-box {
+  background-color: #000000;
+  padding: 30px 25px;
+  border-radius: 10px;
+  width: 380px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.contact-box h2 {
+  margin-top: 20px;
+  margin-bottom: 80px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.contact-item i {
+  font-size: 18px;
+  margin-right: 12px;
+  color: #fff;
+  min-width: 20px;
+}
+
+.contact-item p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.contact-item a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 480px) {
+  .contact-box {
+    width: 90%;
+    padding: 25px 20px;
+  }
+
+  .contact-box h2 {
+    font-size: 20px;
+  }
+
+  .contact-item i {
+    font-size: 16px;
+  }
+
+  .contact-item p {
+    font-size: 13px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .parallax-section {
+    height: 700px;
+  }
+  .parallax-section h2 {
+    font-size: 2em;
+  }
+}
+
+
+
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
@@ -679,4 +918,23 @@ nav ul li a:hover {
   .slide {
     flex: 0 0 100%; /* 1 per view */
   }
+  .services{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 320px) {
+  .service-card img{
+    height: 80px;
+    width: 80px;
+  }
+  .service-card{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .services{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
 }

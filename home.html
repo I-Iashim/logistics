@@ -85,15 +85,136 @@
         <div class="dots" id="dots"></div>
       </div>
     </section>
+    <section class="affiliation secondSlider">
+      <div class="marginDiv2">
+        <h2>Our Clients</h2>
+
+        <div class="slider-container">
+          <div class="slider" id="slider2"></div>
+        </div>
+
+        <div class="dots" id="dots2"></div>
+      </div>
+    </section>
+
+
+
+
+
+
+    <section class="services">
+      <div class="marginDiv2">
+        <div class="container">
+          <h2 class="section-title">Our Services</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <img src="images/home/service1.png" alt="IOR/EOR">
+              <h3>Custom Clearance</h3>
+            </div>
+            <div class="service-card">
+              <img src="images/home/service3.png" alt="Transportation" >
+              <h3>Transportation</h3>
+            </div>
+
+            <div class="service-card">
+              <img src="images/home/service4.png" alt="Transportation">
+              <h3>Air Freight</h3>
+            </div>
+
+            <div class="service-card">
+              <img src="images/home/service5.png" alt="Transportation">
+              <h3>Ocean Freight</h3>
+            </div>
+
+            <div class="service-card">
+              <img src="images/home/service6.png" alt="Transportation">
+              <h3>Project Logistics</h3>
+            </div>
+
+            <div class="service-card">
+              <img src="images/home/service7.png" alt="Transportation">
+              <h3>Warehousing</h3>
+            </div>
+
+            <!-- Add more cards as needed -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="parallax-section">
+  <div class="content contact-box ">
+    <h2>Get In Touch</h2>
+
+    <div class="contact-item">
+      <i class="fa-solid fa-location-dot"></i>
+      <p>1202, Level 12, Fahidi Heights - AWR Properties, Dubai, United Arab Emirates</p>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-solid fa-clock"></i>
+      <p>8.30 AM to 5.30 PM (Monday to Friday)</p>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-solid fa-phone"></i>
+      <p>+971 4 349 4262</p>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <p>+971 55 6658 178</p>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <p>+971 54 792 8525</p>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-solid fa-envelope"></i>
+      <p><a href="mailto:info@saglogistic.com">info@saglogistic.com</a></p>
+    </div>
+
+    <div class="contact-item">
+      <i class="fa-solid fa-envelope"></i>
+      <p><a href="mailto:sales@saglogistic.com">sales@saglogistic.com</a></p>
+    </div>
+  </div>
+</section>
+
   </main>
 
 
 
 
+<script>
+        let menuList = document.getElementById("menuList")
+        menuList.style.maxHeight = "0px";
 
+        function toggleMenu() {
+            if (menuList.style.maxHeight == "0px") {
+                menuList.style.maxHeight = "300px";
+            }
+            else {
+                menuList.style.maxHeight = "0px";
+            }
+        }
 
-
-<script src="https://kit.fontawesome.com/91f1d83e7d.js" crossorigin="anonymous"></script>
+    </script>
+  <script src="https://kit.fontawesome.com/91f1d83e7d.js" crossorigin="anonymous"></script>
   <script>
     // ✅ EDIT THIS LIST to change the images
     const logos = [
@@ -103,7 +224,15 @@
       { src: "images/home/industryLogo4.webp", alt: "Dubai Quality" },
       { src: "images/home/industryLogo5.webp", alt: "Dubai Chamber" },
     ];
-
+    const partnerLogos = [
+      { src: "images/home/clientsLogo1.png", alt: "Partner 1" },
+      { src: "images/home/clientsLogo2.png", alt: "Partner 2" },
+      { src: "images/home/clientsLogo3.png", alt: "Partner 3" },
+      { src: "images/home/clientsLogo4.png", alt: "Partner 4" },
+      { src: "images/home/clientsLogo5.png", alt: "Partner 5" },
+      { src: "images/home/clientsLogo6.png", alt: "Partner 6" },
+      { src: "images/home/clientsLogo8.png", alt: "Partner 7" },
+    ];
     const slider = document.getElementById("slider");
     const dotsContainer = document.getElementById("dots");
 
@@ -152,6 +281,59 @@
         dot.classList.toggle("active", i === index);
       });
     }
+    // ---------- SECOND SLIDER ----------
+    const slider2 = document.getElementById("slider2");
+    const dotsContainer2 = document.getElementById("dots2");
+
+    let index2 = 0;
+
+    // Build slides dynamically
+    function createSlides2() {
+      slider2.innerHTML = "";
+      partnerLogos.forEach((logo) => {
+        const slide = document.createElement("div");
+        slide.className = "slide";
+        slide.innerHTML = `<img src="${logo.src}" alt="${logo.alt}">`;
+        slider2.appendChild(slide);
+      });
+    }
+
+    // Create dots
+    function createDots2() {
+      dotsContainer2.innerHTML = "";
+      const numDots = 7;
+      for (let i = 0; i < numDots; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+          index2 = i;
+          updateSlider2();
+        });
+        dotsContainer2.appendChild(dot);
+      }
+    }
+
+    // Move slider
+    function updateSlider2() {
+      const slidesPerView = getSlidesPerView();
+      const offset = index2 * (100 / slidesPerView);
+      slider2.style.transform = `translateX(-${offset}%)`;
+
+      document.querySelectorAll("#dots2 .dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === index2);
+      });
+    }
+
+    // Initialize second slider
+    createSlides2();
+    createDots2();
+    updateSlider2();
+
+    window.addEventListener("resize", () => {
+      createDots2();
+      updateSlider2();
+    });
 
     // Initialize
     createSlides();
