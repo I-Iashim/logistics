@@ -1,13 +1,13 @@
 .about-section-2 {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .introductionContainer {
   height: 800px;
 
   background-image: url("../images/about/flag.jpg");
-  background-position: center;
+  background-position: start;
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
@@ -73,7 +73,7 @@
   align-items: center;
   padding: 100px 20px;
   overflow: hidden;
-  background: url('https://images.unsplash.com/photo-1505839673365-e3971f8d9184?auto=format&fit=crop&w=1500&q=80') center/cover fixed no-repeat;
+  background: url('../images/about/background.jpg') center/cover fixed no-repeat;
 }
 
 /* Dark overlay */
@@ -338,18 +338,19 @@
 }
 
 .card-body {
-  padding: 20px;
+  padding: 20px 8px ;
   text-align: center;
   color: #212529;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 500px;
   justify-content: space-evenly;
+  transition: all .5s ease;
 }
 
 .card {
-  max-width: 255px;
+  max-width: 300px;
   width: 100%;
   height: 100%;
 }
@@ -361,9 +362,9 @@
 .card-body img {
   margin-top: -30px;
   margin-bottom: 16px;
-  width: 80%;
-  max-width: 100px;
-  height: auto;
+  max-width: 140px;
+  width: 100%;
+  max-height: 140px;
   border-radius: 50%;
   transition: all 0.5s ease;
   object-fit: cover;
@@ -374,24 +375,25 @@
 }
 
 .card-body img:hover {
-  max-width: 120px;
+  transform: scale(1.15);
 
 }
-.section-5-cards:nth-child(1) .card-body img,
-.section-5-cards:nth-child(2) .card-body img {
-  max-width: 120px;
+.card-body:hover .underline{
+  background: linear-gradient(90deg,#000, #ffffff,#fff, #000000);
 }
-
 .section-5-cards {
   cursor: pointer;
   max-width: 25%;
-  padding: 0 15px;
 }
 
 .section-5-row {
+  flex-direction: column  ;
+  flex-wrap: wrap;
+  gap: 35px;
+  justify-content: space-evenly;
   display: flex;
   flex-direction: row;
-
+  
 }
 
 .section-5 {
@@ -517,8 +519,9 @@
   text-align: center;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.5s ease;
+  transition: all .5s ease;
   opacity: 1;
+
 }
 
 .team-card.big {
@@ -611,7 +614,7 @@
   display: block;
   width: 60%;
   height: 3px;
-  background: linear-gradient(90deg, #f26522, #ffae00);
+  background: linear-gradient(90deg, #f26522, #ff5722);
   margin: 0 auto 10px;
   border-radius: 2px;
   animation: underlinePulse 2s infinite ease-in-out;
@@ -743,6 +746,230 @@
   line-height: 1.7;
 }
 
+
+.mission-section{
+  background-color: #ff5722;
+  height: 500px;
+
+}
+
+.mission-vission-container{
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 50px 0px;
+  flex-direction: row;
+  display: flex;
+  height: 400px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 150px;
+  flex-wrap: wrap;
+}
+.missionContainer{
+  max-width: 300px;
+}
+.missionContainer div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px ;
+  gap: 10px;
+  flex-direction: column;
+  height: 300px;
+}
+.missionContainer i{
+  transform: scale(2);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mv-glass-section{
+  padding: 100px 20px;
+  text-align:center;
+  background-color: #000;
+  
+}
+
+.mv-title{
+  font-size:1.8rem;
+  margin-bottom:40px;
+  color:#111;
+  letter-spacing:0.5px;
+}
+
+.mv-cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+  gap:28px;
+}
+
+.mv-card{
+  width: min(340px, 90vw);
+  padding:32px 24px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.18);
+  backdrop-filter:blur(18px);
+  text-align:center;
+  transition:transform .35s ease, box-shadow .35s ease;
+  box-shadow:0 8px 30px rgba(0,0,0,0.08);
+  position:relative;
+  overflow:hidden;
+  color:#222;
+}
+
+/* Neon Glow */
+.mv-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 50% -10%, #000000, transparent 75%);
+  opacity:0.35;
+  transition:opacity .35s ease;
+}
+
+
+.mv-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.15);
+}
+
+.mv-card:hover::before{
+  opacity:0.55;
+}
+
+/* Icon styling */
+.mv-icon{
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  margin:0 auto 16px;
+  background:rgba(255,255,255,0.65);
+  backdrop-filter:blur(10px);
+  border:2px solid rgba(255,255,255,0.45);
+  box-shadow:0 0 18px var(--glow, #00d4ff);
+}
+.mv-icon svg{
+  width:32px;
+  height:32px;
+  color:var(--glow, #00d4ff);
+}
+
+.mv-card h3{
+  margin:10px 0 12px;
+  font-size:1.1rem;
+  letter-spacing:0.4px;
+  color: white;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+.mv-card p{
+  font-size:0.92rem;
+  line-height:1.46;
+  color:#ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mv-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 87, 34, 0.3); /* lighter border */
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 320px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 15px rgba(255,87,34,0.1); /* reduced glow */
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.5s ease;
+}
+
+.mv-card.in-view {
+  transform: translateY(0);
+  opacity: 1;
+  box-shadow: 0 0 30px rgba(255,87,34,0.2), 0 0 50px rgba(255,87,34,0.1); /* softer glow */
+}
+
+.mv-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 40px rgba(255,87,34,0.3), 0 0 80px rgba(255,87,34,0.15); /* subtle hover glow */
+}
+
+.mv-icon {
+  margin-bottom: 20px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 50%;
+  padding: 10px;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { 
+    box-shadow: 0 0 5px var(--color), 0 0 10px rgba(255,87,34,0.1); 
+    transform: rotate(0deg);
+  }
+  50% { 
+    box-shadow: 0 0 10px var(--color), 0 0 20px rgba(255,87,34,0.15); 
+    transform: rotate(3deg);
+  }
+  100% { 
+    box-shadow: 0 0 5px var(--color), 0 0 10px rgba(255,87,34,0.1); 
+    transform: rotate(0deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+
 /* === Animations === */
 @keyframes fadeUp {
   from {
@@ -786,9 +1013,26 @@
   }
 }
 
-/* === Responsive === */
-@media (max-width: 992px) {
-  .ceo-container {
+
+
+
+
+
+
+
+
+
+  @media (max-width: 992px) {
+    .section-5-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .section-5-cards {
+    max-width: 45%;
+    margin-bottom: 40px;
+  }
+.ceo-container {
     flex-direction: column;
     text-align: center;
   }
@@ -810,39 +1054,9 @@
   .ceo-content p {
     font-size: 16px;
   }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-  @media (max-width: 992px) {
-    .section-5-row {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .section-5-cards {
-    max-width: 45%;
-    margin-bottom: 40px;
-  }
-
-  .card-body img {
-    max-width: 160px;
-  }
-
-  .section-5-cards:nth-child(1) .card-body img,
-  .section-5-cards:nth-child(2) .card-body img {
-    max-width: 190px;
-  }
-
-
- }
 
 
 
@@ -906,9 +1120,6 @@
     max-width: 100%;
   }
 
-  .card-body img {
-    width: 20%;
-  }
 
   .info-header h1 {
     font-size: 30px;
@@ -918,6 +1129,7 @@
     font-size: 16px;
   }
   .section-5-row {
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
   }
@@ -928,13 +1140,8 @@
   }
 
   .card-body img {
-    max-width: 150px;
   }
 
-  .section-5-cards:nth-child(1) .card-body img,
-  .section-5-cards:nth-child(2) .card-body img {
-    max-width: 170px;
-  }
 
   .info-header h1 {
     font-size: 28px;
@@ -947,18 +1154,29 @@
 
 
 @media (max-width: 425px) {
-  .card-body img{
-    width: 100px;
-  }
+  
   .container{
     padding-left: 0;
     padding-right: 0;
   }
   
 }
+@media (max-width:375px) {
+  .circle-bg{
+    max-width: 270px;
+    max-height: 270px;
+    left: -20px;
+  }  
+  .circle-bg img{
+    max-width: 255px;
+    max-height: 255px;
+    left: -10px;
+  }  
+}
 @media (max-width: 320px) {
   .card-body img{
-    width: 80px;
+    width: 120px;
+    height: 120px;
   }
   .card-body h3{
     font-size: 20px;
